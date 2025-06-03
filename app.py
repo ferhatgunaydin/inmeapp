@@ -112,14 +112,20 @@ def indir_pdf(hasta_id):
     pdf.add_page()
 
     # Font yolları
-    font_path_regular = os.path.join(app.root_path, "static", "fonts", "DejaVuSans.ttf")
-    font_path_bold = os.path.join(app.root_path, "static", "fonts", "DejaVuSans-Bold.ttf")
+    fpdf_font_folder = "fonts"
+    os.makedirs(fpdf_font_folder, exist_ok=True)
 
-    pdf.add_font('DejaVu', '', font_path_regular, uni=True)
-    pdf.add_font('DejaVu', 'B', font_path_bold, uni=True)
+    # Kopyala sadece ilk sefer
+    if not os.path.exists(os.path.join(fpdf_font_folder, "DejaVuSans.ttf")):
+        import shutil
+        shutil.copy("static/fonts/DejaVuSans.ttf", fpdf_font_folder)
+        shutil.copy("static/fonts/DejaVuSans-Bold.ttf", fpdf_font_folder)
+
+    pdf.add_font("DejaVu", "", "fonts/DejaVuSans.ttf", uni=True)
+    pdf.add_font("DejaVu", "B", "fonts/DejaVuSans-Bold.ttf", uni=True)
 
     # Logo ve başlık
-    logo_path = os.path.join(app.root_path, "static", "logo.png")
+    logo_path = os.path.join("static", "logo.png")
     if os.path.exists(logo_path):
         pdf.image(logo_path, x=85, y=10, w=40)
     pdf.set_y(55)
