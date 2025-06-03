@@ -1,4 +1,4 @@
-
+from datetime import datetime
 import cv2
 import os
 import uuid
@@ -54,7 +54,22 @@ def index():
             with open('predictions.csv', 'a', encoding='utf-8') as f:
                 f.write(f"{hasta_id},{isim},{prediction_label},{confidence:.2%},{mask_path},{overlay_path}\n")
 
-    return render_template('index.html', result=result, uploaded=uploaded_path, mask=mask_path, overlay=overlay_path)
+    # CSV'den son 5 kaydı oku
+    try:
+        df = pd.read_csv('predictions.csv', names=["hasta_id", "isim", "tahmin", "güven", "mask_path", "overlay_path"])
+        last_predictions = df.tail(5).iloc[::-1].to_dict(orient="records")  # ters sırayla son 5
+    except:
+        last_predictions = []
+
+    return render_template(
+        'index.html',
+        result=result,
+        uploaded=uploaded_path,
+        mask=mask_path,
+        overlay=overlay_path,
+        last_predictions=last_predictions
+    )
+
 
 @app.route('/gecmis')
 def gecmis():
@@ -160,4 +175,5 @@ def indir_pdf(hasta_id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
