@@ -1,6 +1,4 @@
-flask
-tensorflow
-numpy
-opencv-python
-fpdf
-Pillow
+flask==2.3.3
+pandas==2.2.2
+gunicorn==21.2.0
+fpdf==1.7.2

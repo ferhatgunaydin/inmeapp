@@ -1,5 +1,5 @@
-hasta_id,isim,tarih,tahmin,güven,overlay_path
-1,veli ali,Negative,73.96%,None,None
-1,ali veli,Kanamalı İnme,97.24%,static/masks\mask_48df9ab515c0411189c32c958e701708.png,static/overlays\overlay_40a85b5a9a1d4ac782289f5a2e2258d5.png
-2,veli ali,İskemik İnme,93.91%,static/masks\mask_c8466216c8c74677b2396b735952d5ff.png,static/overlays\overlay_fbbb56f581b049f0976300f29ca3748c.png
-2,ali veli,İskemik İnme,92.16%,static/masks\mask_16e67d073fac49a1899089d5763371e1.png,static/overlays\overlay_5c1872628f524da8ac463c88bfc1fdb7.png
+1,ali veli,Negative,92.26%,None,None
+2,ali veli,Kanamalı İnme,99.71%,static/masks\mask_5698c907317a4ba08e667649ddb86c08.png,static/overlays\overlay_a3b1f126d5544f408576437c2183b708.png
+2,ali veli,İskemik İnme,99.23%,static/masks\mask_06a0a5aec1fd4e4ba1a2c14b1bf0ea08.png,static/overlays\overlay_d43929fde18a44249903c369106fa192.png
+1,ali veli,İskemik İnme,99.23%,static/masks\mask_23495bd23ddc41dba76cf3e18d8f969c.png,static/overlays\overlay_4b079da22598421da21d6f84a991e5d9.png
+2,ali veli,Kanamalı İnme,92.29%,static/masks\mask_1f69ad20786b4802ae15a57ca366c203.png,static/overlays\overlay_8d0ebd4a8b07422399b8cdf2037ba1c9.png

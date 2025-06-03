@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -11,51 +12,54 @@
   <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="max-height: 120px;">
 </div>
 
-  <div class="container mt-5">
-    <h2 class="mb-4">Geçmiş Tahminler</h2>
+<div class="container mt-5">
+  <h2 class="mb-4">Geçmiş Tahminler</h2>
 
-    <form method="get" class="row g-3 mb-4">
-      <div class="col-md-4">
-        <input type="text" name="hasta_id" placeholder="Hasta ID ile filtrele" class="form-control">
-      </div>
-      <div class="col-md-4">
-        <input type="text" name="tahmin" placeholder="Tahmine göre filtrele" class="form-control">
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-secondary w-100">Filtrele</button>
-      </div>
-    </form>
+  <form method="get" class="row g-3 mb-2">
+    <div class="col-md-4">
+      <input type="text" name="hasta_id" placeholder="Hasta ID ile filtrele" class="form-control">
+    </div>
+    <div class="col-md-4">
+      <input type="text" name="tahmin" placeholder="Tahmine göre filtrele" class="form-control">
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-secondary w-100">Filtrele</button>
+    </div>
+  </form>
 
-    <table class="table table-bordered table-striped shadow">
-      <thead class="table-light">
-        <tr>
-          <th>Hasta ID</th>
-          <th>İsim</th>
-          <th>Tahmin</th>
-          <th>Güven</th>
-          <th>Maske</th>
-          <th>Overlay</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for row in records %}
-        <tr>
-          <td>{{ row.hasta_id }}</td>
-          <td>{{ row.isim }}</td>
-          <td>{{ row.tahmin }}</td>
-          <td>{{ row.güven }}</td>
-          <td>{% if row.mask_path %}<img src="{{ row.mask_path }}" width="64">{% endif %}</td>
-          <td>{% if row.overlay_path %}<img src="{{ row.overlay_path }}" width="64">{% endif %}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+  <div class="mb-4">
+    <a href="/indir_csv" class="btn btn-success">Tüm Verileri CSV Olarak İndir</a>
   </div>
 
-</body>
-<body class="bg-light">
+  <table class="table table-bordered table-striped shadow">
+    <thead class="table-light">
+      <tr>
+        <th>Hasta ID</th>
+        <th>İsim</th>
+        <th>Tahmin</th>
+        <th>Güven</th>
+        <th>Maske</th>
+        <th>Overlay</th>
+        <th>PDF</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in records %}
+      <tr>
+        <td>{{ row.hasta_id }}</td>
+        <td>{{ row.isim }}</td>
+        <td>{{ row.tahmin }}</td>
+        <td>{{ row.güven }}</td>
+        <td>{% if row.mask_path %}<img src="{{ row.mask_path }}" width="64">{% endif %}</td>
+        <td>{% if row.overlay_path %}<img src="{{ row.overlay_path }}" width="64">{% endif %}</td>
+        <td><a href="/indir_pdf/{{ row.hasta_id }}" class="btn btn-sm btn-outline-primary">PDF İndir</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-4">
   <div class="container">
     <a class="navbar-brand" href="/">İnme Uygulaması</a>
     <div class="collapse navbar-collapse">
@@ -70,4 +74,5 @@
     </div>
   </div>
 </nav>
+</body>
 </html>
