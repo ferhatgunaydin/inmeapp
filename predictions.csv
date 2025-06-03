@@ -1,0 +1,5 @@
+hasta_id,isim,tarih,tahmin,güven,overlay_path
+1,veli ali,Negative,73.96%,None,None
+1,ali veli,Kanamalı İnme,97.24%,static/masks\mask_48df9ab515c0411189c32c958e701708.png,static/overlays\overlay_40a85b5a9a1d4ac782289f5a2e2258d5.png
+2,veli ali,İskemik İnme,93.91%,static/masks\mask_c8466216c8c74677b2396b735952d5ff.png,static/overlays\overlay_fbbb56f581b049f0976300f29ca3748c.png
+2,ali veli,İskemik İnme,92.16%,static/masks\mask_16e67d073fac49a1899089d5763371e1.png,static/overlays\overlay_5c1872628f524da8ac463c88bfc1fdb7.png
